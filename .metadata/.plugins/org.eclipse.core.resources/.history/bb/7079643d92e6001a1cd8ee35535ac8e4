@@ -1,0 +1,38 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class TestPage {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		String browser ="Chrome";
+		
+		if(browser=="Chrome") {
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nadeesha\\Downloads\\Software\\Sel\\chromedriver_win32\\chromedriver.exe");	
+		}
+		WebDriver driver = new ChromeDriver();
+		
+		
+		
+		driver.get("https://www.spicejet.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+		
+		driver.findElement(By.xpath("//*[@name='ctl00_mainContent_ddl_originStation1_CTXT']")).click();
+		
+		
+		
+		
+		
+		Thread.sleep(10000);
+		// Close the Browser
+		driver.close();
+		
+	}
+}

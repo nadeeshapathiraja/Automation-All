@@ -1,0 +1,46 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class AddCart {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nadeesha\\Downloads\\Software\\Sel\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/");
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+		
+
+		String[] vegitables = {"1", "5","15","20"};
+		for (int i = 0; i < vegitables.length; i++) {
+			if(vegitables[i]=="5") {
+			
+				WebElement text = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div/img"));
+				String value2 =text.getText();
+				System.out.println(value2);
+			}
+			WebElement btn = driver
+					.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div["+vegitables[i]+"]/div[3]/button[1]"));
+			
+			Actions actions = new Actions(driver);
+			actions.moveToElement(btn).click().perform();
+			Thread.sleep(500);
+		}
+		
+		Thread.sleep(10000);
+		// Close the Browser
+		driver.close();
+
+			
+		}
+
+	}
+
+
